@@ -1,7 +1,7 @@
 import React from "react";
 const Card = () => {
   return (
-    <div className="card" style={{ width: "28rem" }}>
+    <div className="card col-4 mx-2">
       <img
         src="https://www.prensalibre.com/wp-content/uploads/2019/11/luke-skywalker-644x362.jpg?quality=52"
         className="card-img-top"

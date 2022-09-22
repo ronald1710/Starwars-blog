@@ -8,6 +8,7 @@ export const Navbar = () => {
         <img
           width={100}
           src="https://1.bp.blogspot.com/-tcIehETEdwo/VepHPyglOSI/AAAAAAAANBk/-8XH76kAqpY/s1600/Star-Wars-Logo.png"
+		  className="mx-2"
         />
       </Link>
       <div className="ml-auto">
