@@ -3,16 +3,26 @@ import "../../styles/home.css";
 import { Card } from "../component/card";
 
 export const Home = () => {
-  const [addCharacters, setAddCharacters] = useState([]);
+  const [characters, setCharacters] = useState([]);
+  const [planets, setPlanets] = useState([]);
+
   const getCharacters = () => {
     fetch("https://www.swapi.tech/api/people")
       .then((resp) => resp.json())
-      .then((resp) => setAddCharacters(resp))
-      //.catch((err) => console.error(err));
+      .then((resp) => setCharacters(resp.results))
+      .catch((err) => console.error(err));
   };
-  console.log (addCharacters)
+  const getPlanets = () => {
+    fetch("https://www.swapi.tech/api/planets")
+      .then((resp) => resp.json())
+      .then((resp) => setPlanets(resp.results))
+      .catch((err) => console.error(err));
+  };
+
+  console.log(characters);
   useEffect(() => {
     getCharacters();
+    getPlanets();
   }, []);
   /*  let img = [
     "https://avatars.githubusercontent.com/u/63676653?v=4",
@@ -30,14 +40,11 @@ let name = addCharacters.map(function callback(currentValue, index, array) {
         <h1 className="text-danger mx-2">Character</h1>
         <div className="overflow-auto">
           <div className="d-flex">
-             {/* {addCharacters.results.map((singlename, index) => {
+            {characters.map((singlename, index) => {
               return (
-              <Card key={index}>
-                {singlename.name}
-              </Card>
-            );
+                <Card key={index} name={singlename.name} type="characters" id={singlename.uid}/>
+              );
             })}
-           {/*<Cards key={i}  img={singleimg} alt={alt[i]} tittle={tittle[i]} description={description[i]} link={link[i]} desLink={desLink[i]} />;*/}
           </div>
         </div>
       </div>
@@ -45,16 +52,11 @@ let name = addCharacters.map(function callback(currentValue, index, array) {
         <h1 className="text-danger mx-2 mt-4">Planets</h1>
         <div className="overflow-auto">
           <div className="d-flex">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {planets.map((singlename, index) => {
+              return (
+                <Card key={index} name={singlename.name} type="planets" id={singlename.uid} />
+              );
+            })}
           </div>
         </div>
       </div>
