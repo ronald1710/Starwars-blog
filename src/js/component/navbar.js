@@ -12,9 +12,9 @@ export const Navbar = () => {
         />
       </Link>
       <div className="ml-auto">
-        <div class="dropdown">
+        <div className ="dropdown">
           <a
-            class="btn btn-primary dropdown-toggle"
+            className="btn btn-primary dropdown-toggle"
             href="#"
             role="button"
             data-bs-toggle="dropdown"
@@ -23,9 +23,9 @@ export const Navbar = () => {
             Dropdown link
           </a>
 
-          <ul class="dropdown-menu">
+          <ul className="dropdown-menu">
             <li>
-              <a class="dropdown-item" href="#">
+              <a className="dropdown-item" href="#">
                 Action
               </a>
             </li>
