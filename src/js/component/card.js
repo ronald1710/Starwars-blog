@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   return (
     <div className="card col-4 mx-2">
-      <img src={props.img} className="card-img-top" alt="..." />
+      <img src={props.img} className="card-img-top" height={200} alt="..." />
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
         <div className="container d-flex">
