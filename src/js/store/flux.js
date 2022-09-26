@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       planets: [],
       characters: [],
       characterIndividual: [],
-	  planetIndividual: [],
+      planetIndividual: [],
       imgPersonas: [
         {
           url: "https://i.pinimg.com/originals/a1/93/e9/a193e9ec775e428f2ed2aabead1bed65.gif",
@@ -79,6 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           url: "https://pm1.narvii.com/6594/9a9044c1ef56788efcbe4b4015043a306b49ece6_hq.jpg",
         },
       ],
+      favoritos: [{ name: "" }],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -110,6 +111,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         //reset the global store
         setStore({ demo: demo });
       },
+      setFavorito: elementoNuevo => {
+				setStore({ favoritos: elementoNuevo});
+        console.log("Los favoritos son",elementoNuevo);
+      
+			},
+      
+      BorrarIdElement: idelement => {
+				const store = getStore();
+				let newArray = [];
+				store.favoritos.filter(function(element, i) {
+					if (i !== idelement) {
+						newArray.push(element);
+					}
+				});
+				setStore({ favoritos: newArray });
+			},
       informacionIndividualPeople: (id) => {
         fetch("https://www.swapi.tech/api/people/" + id)
           .then((resp) => resp.json())
@@ -118,7 +135,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           )
           .catch((err) => console.error(err));
       },
-	  informacionIndividualPlanet: (id) => {
+      informacionIndividualPlanet: (id) => {
         fetch("https://www.swapi.tech/api/planets/" + id)
           .then((resp) => resp.json())
           .then((resp) =>

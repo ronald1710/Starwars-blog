@@ -2,10 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import "../../styles/home.css";
 import { Card } from "../component/card";
 import { Context } from "../store/appContext";
-
 export const Home = () => {
   const { store, actions } = useContext(Context);
-
   return (
     <div>
       <div>

@@ -16,7 +16,7 @@ export const CharactersViews = () => {
   return (
     <div className="container">
       <div className="card mb-3">
-        <img src={store.imgPersonas[params?.theid -1].url} height={200} className="card-img-top" alt="..."/>
+        <img src={store.imgPersonas[params?.theid -1].url} height={300} className="card-img-top" alt="..."/>
         <div className="card-body">
           <h1 className="card-title text-center">
             {store.characterIndividual?.name}
