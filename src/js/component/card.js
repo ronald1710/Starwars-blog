@@ -2,7 +2,16 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 const Card = (props) => {
+  const [favorito, setFavorito] = useState(false);
   const { store, actions } = useContext(Context);
+  const getFavorito = () => {
+    store.favoritos.filter((caracter) => {
+      console.log(caracter);
+      if (caracter.name === props.name) {
+        setFavorito(true);
+      }
+    });
+  };
   return (
     <div className="card col-4 mx-2">
       <img src={props.img} className="card-img-top" height={200} alt="..." />
@@ -10,7 +19,6 @@ const Card = (props) => {
         <h5 className="card-title">{props.name}</h5>
 
         <div className="container-flex">
-
           <div className="float-start">
             <Link
               type="button"
@@ -25,16 +33,23 @@ const Card = (props) => {
             </Link>
           </div>
 
-          <div > 
-            <button 
+          <div>
+            <button
               onClick={() => {
                 actions.setFavorito([...store.favoritos, { name: props.name }]);
                 console.log(store);
+                getFavorito();
               }}
-              className="float-end border border-0 bg-transparent"
+              className="float-end border-0 btn btn-info"
             >
               <a>
-                <i className="bi bi-suit-heart btn btn-secondary" />
+                <i
+                  className={
+                    favorito
+                      ? "bi bi-heart-fill text-danger"
+                      : "bi bi-heart-fill text-secondary"
+                  }
+                />
               </a>
             </button>
           </div>

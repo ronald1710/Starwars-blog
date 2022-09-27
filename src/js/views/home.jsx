@@ -6,7 +6,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
   return (
     <div>
-      <div>
+      <div className="container">
         <h1 className="text-danger mx-2">Character</h1>
         <div className="overflow-auto">
           <div className="d-flex">
@@ -24,7 +24,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="container">
         <h1 className="text-danger mx-2 mt-4">Planets</h1>
         <div className="overflow-auto">
           <div className="d-flex">
