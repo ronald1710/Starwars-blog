@@ -15,9 +15,9 @@ export const Home = () => {
                 <Card
                   img={store.imgPersonas[index].url}
                   key={index}
-                  name={singlename.name}
+                  name={singlename.character_name}
                   type="characters"
-                  id={singlename.uid}
+                  id={singlename.id}
                 />
               );
             })}
@@ -33,9 +33,9 @@ export const Home = () => {
                 <Card
                   img={store.imgPlanetas[index].url}
                   key={index}
-                  name={singlename.name}
+                  name={singlename.planet_name}
                   type="planets"
-                  id={singlename.uid}
+                  id={singlename.id}
                 />
               );
             })}

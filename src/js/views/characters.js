@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-
 import "../../styles/demo.css";
 
 export const CharactersViews = () => {
@@ -19,7 +18,7 @@ export const CharactersViews = () => {
         <img src={store.imgPersonas[params?.theid -1].url} height={300} className="card-img-top" alt="..."/>
         <div className="card-body">
           <h1 className="card-title text-center">
-            {store.characterIndividual?.name}
+            {store.characterIndividual?.character_name}
           </h1>
           <p className="card-text">
             
@@ -29,7 +28,7 @@ export const CharactersViews = () => {
               <div className="row align-items-start">
                 <div className="col">
                   <p className="text-danger">Name</p>
-                  <p>{store.characterIndividual?.name}</p>
+                  <p>{store.characterIndividual?.character_name}</p>
                 </div>
                 <div className="col">
                   <p className="text-danger">Birth Year</p>

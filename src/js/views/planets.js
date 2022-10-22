@@ -20,7 +20,7 @@ return (
         <img src={store.imgPlanetas[params?.theid -1].url} height={300} className="card-img-top" alt="..." />
         <div className="card-body">
           <h1 className="card-title text-center">
-          {store.planetIndividual?.name}
+          {store.planetIndividual?.planet_name}
           </h1>
           <p className="card-text">
             
@@ -30,7 +30,7 @@ return (
               <div className="row align-items-start">
                 <div className="col">
                   <p className="text-danger">Name</p>
-                  <p>{store.planetIndividual?.name}</p>
+                  <p>{store.planetIndividual?.planet_name}</p>
                 </div>
                 <div className="col">
                   <p className="text-danger">Climate</p>

@@ -87,14 +87,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().changeColor(0, "green");
       },
       loadSomeData: () => {
-        fetch("https://www.swapi.tech/api/people")
+        fetch(process.env.BACKEND_URL +"/characters")
           .then((resp) => resp.json())
-          .then((resp) => setStore({ characters: resp.results }))
+          .then((resp) => setStore({ characters: resp }))
           .catch((err) => console.error(err));
 
-        fetch("https://www.swapi.tech/api/planets")
+        fetch(process.env.BACKEND_URL +"/planets")
           .then((resp) => resp.json())
-          .then((resp) => setStore({ planets: resp.results }))
+          .then((resp) => setStore({ planets: resp }))
           .catch((err) => console.error(err));
       },
       changeColor: (index, color) => {
@@ -128,18 +128,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favoritos: newArray });
 			},
       informacionIndividualPeople: (id) => {
-        fetch("https://www.swapi.tech/api/people/" + id)
+        fetch(process.env.BACKEND_URL +"/characters/" + id)
           .then((resp) => resp.json())
           .then((resp) =>
-            setStore({ characterIndividual: resp.result.properties })
+            setStore({ characterIndividual: resp })
           )
           .catch((err) => console.error(err));
       },
       informacionIndividualPlanet: (id) => {
-        fetch("https://www.swapi.tech/api/planets/" + id)
+        fetch(process.env.BACKEND_URL +"/planets/" + id)
           .then((resp) => resp.json())
           .then((resp) =>
-            setStore({ planetIndividual: resp.result.properties })
+            setStore({ planetIndividual: resp })
           )
           .catch((err) => console.error(err));
       },
